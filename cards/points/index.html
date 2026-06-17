@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Points Transfer Flow – 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .source-glow { box-shadow: 0 0 0 0px rgba(56,189,248,0); transition: all 0.4s cubic-bezier(0.2,0.8,0.2,1); }
+        .source-active { box-shadow: 0 0 0 6px rgba(56,189,248,0.2), 0 10px 40px -10px rgba(2,132,199,0.5); transform: translateY(-2px); }
+        .citi-active { box-shadow: 0 0 0 6px rgba(5,109,174,0.15), 0 10px 40px -10px rgba(5,109,174,0.4); transform: translateY(-2px); }
+        .airline-card.selected { border-color: #117ACA !important; box-shadow: 0 0 0 3px rgba(17,122,202,0.15), 0 8px 24px -8px rgba(17,122,202,0.3); }
+        .scrollbar-thin::-webkit-scrollbar { width: 5px; }
+        .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-[#f7f9fc] text-slate-800 overflow-x-hidden">
+    <div class="absolute inset-0 -z-10">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_top,_rgba(17,122,202,0.12),_transparent_60%)]"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_top_right,_rgba(5,109,174,0.1),_transparent_60%)]"></div>
+    </div>
+
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 text-white text-xs font-medium mb-4">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Updated for 2026
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">Credit Card Points Transfer Flow</h1>
+            <p class="mt-3 text-lg text-slate-600">Chase Ultimate Rewards vs Citi ThankYou Points</p>
+        </div>
+
+        <!-- Source Cards -->
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 mt-12 md:mt-16">
+            <!-- CHASE -->
+            <div id="chase-source" class="source-glow relative overflow-hidden rounded-[28px] p-7 md:p-8 bg-gradient-to-br from-[#0b5a94] via-[#117ACA] to-[#3aa0e6] text-white shadow-xl shadow-sky-900/20">
+                <div class="absolute -right-20 -top-20 w-56 h-56 rounded-full bg-white/10 blur-3xl"></div>
+                <div class="relative">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/15 backdrop-blur text-[11px] font-medium tracking-wide">1,000-PT INCREMENTS</div>
+                            <h2 class="mt-4 text-[26px] md:text-[30px] font-semibold leading-tight">Chase Ultimate Rewards</h2>
+                            <p class="mt-2 text-sky-100/90 max-w-md text-[15px]">14 partners • All transfers 1:1 • Mostly instant</p>
+                        </div>
+                        <div class="hidden sm:flex w-12 h-12 rounded-2xl bg-white/15 backdrop-blur items-center justify-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center gap-5 text-sm">
+                        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-sky-300 shadow-[0_0_10px_rgba(125,211,252,0.8)]"></span>10 Airlines</div>
+                        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(252,211,77,0.8)]"></span>4 Hotels</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CITI -->
+            <div id="citi-source" class="source-glow relative overflow-hidden rounded-[28px] p-7 md:p-8 bg-gradient-to-br from-[#034a7a] via-[#056DAE] to-[#2a8fd0] text-white shadow-xl shadow-blue-900/20">
+                <div class="absolute -left-20 -top-20 w-56 h-56 rounded-full bg-white/10 blur-3xl"></div>
+                <div class="relative">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/15 backdrop-blur text-[11px] font-medium tracking-wide">RATIOS VARY</div>
+                            <h2 class="mt-4 text-[26px] md:text-[30px] font-semibold leading-tight">Citi ThankYou Points</h2>
+                            <p class="mt-2 text-blue-100/90 max-w-md text-[15px]">22 partners • Unique airlines • 1,000-pt min</p>
+                        </div>
+                        <div class="hidden sm:flex w-12 h-12 rounded-2xl bg-white/15 backdrop-blur items-center justify-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 7h18M3 12h18M3 17h18" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex flex-wrap items-center gap-4 text-sm">
+                        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-sky-300 shadow-[0_0_10px_rgba(125,211,252,0.8)]"></span>15 Airlines</div>
+                        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-amber-300 shadow-[0_0_10px_rgba(252,211,77,0.8)]"></span>5 Hotels</div>
+                        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>2 Other</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Airline Hub -->
+        <div class="mt-16 md:mt-24">
+            <div class="text-center max-w-2xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-semibold tracking-wide">AIRLINE TRANSFER HUB</div>
+                <h2 class="mt-4 text-[28px] md:text-[36px] font-bold tracking-tight text-slate-900">21 Airlines, One View</h2>
+                <p class="mt-2 text-slate-600">Click any airline to compare Chase vs Citi transfer ratios, speed, and availability. Consolidated from both programs.</p>
+            </div>
+
+            <!-- Search -->
+            <div class="relative max-w-xl mx-auto mt-8">
+                <div class="absolute inset-y-0 left-3.5 flex items-center pointer-events-none text-slate-400">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </div>
+                <input id="airline-search" type="text" placeholder="Search airlines — try 'Qatar', 'United', or 'Singapore'" class="w-full h-12 pl-10 pr-4 rounded-2xl bg-white border border-slate-200 shadow-sm focus:outline-none focus:ring-4 focus:ring-sky-100 focus:border-sky-400 text-[15px] transition-all">
+                <div id="search-count" class="absolute -bottom-6 right-1 text-xs text-slate-500"></div>
+            </div>
+
+            <!-- Grid -->
+            <div id="airline-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 mt-10"></div>
+            
+            <div class="flex items-center justify-center gap-6 mt-8 text-xs text-slate-600">
+                <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#117ACA]"></span> Chase available</div>
+                <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#056DAE]"></span> Citi available</div>
+                <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-slate-400"></span> Both</div>
+            </div>
+        </div>
+
+        <!-- Hotels -->
+        <div class="mt-24 md:mt-28">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-[26px] md:text-[32px] font-bold tracking-tight">Hotel Transfer Partners</h2>
+                <p class="mt-2 text-slate-600">Kept separate — hotels don't overlap much between programs.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 md:gap-10 mt-10 max-w-5xl mx-auto">
+                <!-- Chase Hotels -->
+                <div class="bg-white rounded-[24px] border border-slate-200 shadow-sm p-6 md:p-7">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-[#117ACA] flex items-center justify-center text-white font-bold shadow-md shadow-sky-900/20">C</div>
+                        <div>
+                            <h3 class="font-semibold text-lg leading-tight">Chase Hotels</h3>
+                            <p class="text-xs text-slate-500">All 1:1, instant</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-amber-50/70 border border-amber-100"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-600 to-amber-500 text-white grid place-items-center text-[11px] font-bold">IH</div><span class="text-[14px] font-medium">IHG One Rewards</span></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-white border border-amber-200 text-amber-700">1:1</span></div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-amber-50/70 border border-amber-100"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-600 to-amber-500 text-white grid place-items-center text-[11px] font-bold">MB</div><span class="text-[14px] font-medium">Marriott Bonvoy</span></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-white border border-amber-200 text-amber-700">1:1</span></div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-amber-50 border-2 border-amber-300 ring-2 ring-amber-100"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-600 to-amber-500 text-white grid place-items-center text-[11px] font-bold">HY</div><div><span class="text-[14px] font-medium">World of Hyatt</span><span class="ml-1 text-[10px] text-amber-700 font-semibold">*</span></div></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-amber-600 text-white">1:1*</span></div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-amber-50/70 border border-amber-100"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-600 to-amber-500 text-white grid place-items-center text-[11px] font-bold">WY</div><span class="text-[14px] font-medium">Wyndham Rewards</span></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-white border border-amber-200 text-amber-700">1:1</span></div>
+                    </div>
+                    <p class="text-[11px] leading-snug text-slate-500 mt-3">*Hyatt transfers are 4:3 for Chase Sapphire Preferred and Ink Business Preferred effective June 15, 2026 (new) / Oct 1, 2026 (existing). Full 1:1 on Sapphire Reserve.</p>
+                </div>
+
+                <!-- Citi Hotels + Other -->
+                <div class="bg-white rounded-[24px] border border-slate-200 shadow-sm p-6 md:p-7">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-[#056DAE] flex items-center justify-center text-white font-bold shadow-md shadow-blue-900/20">C</div>
+                        <div>
+                            <h3 class="font-semibold text-lg leading-tight">Citi Hotels & Lifestyle</h3>
+                            <p class="text-xs text-slate-500">Ratios vary widely</p>
+                        </div>
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-700 text-white grid place-items-center text-[11px] font-bold">AL</div><span class="text-[14px] font-medium">Accor Live Limitless</span></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-white border text-slate-700">2:1</span></div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-emerald-50 border border-emerald-200"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-emerald-600 text-white grid place-items-center text-[11px] font-bold">CP</div><span class="text-[14px] font-medium">Choice Privileges</span></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-emerald-600 text-white">1:2</span></div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-700 text-white grid place-items-center text-[11px] font-bold">LH</div><span class="text-[14px] font-medium">Leading Hotels</span></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-white border text-slate-700">5:1</span></div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-emerald-50 border border-emerald-200"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-emerald-600 text-white grid place-items-center text-[11px] font-bold">PH</div><span class="text-[14px] font-medium">I Prefer</span></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-emerald-600 text-white">1:4</span></div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate-700 text-white grid place-items-center text-[11px] font-bold">WY</div><span class="text-[14px] font-medium">Wyndham Rewards</span></div><span class="text-xs font-semibold px-2 py-1 rounded-lg bg-white border text-slate-700">1:1</span></div>
+                        <div class="pt-2 mt-3 border-t border-dashed">
+                            <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2">Other</div>
+                            <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50"><span class="text-[13px]">Virgin Red</span><span class="text-xs px-2 py-0.5 rounded bg-white border">1:1</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-20 text-center text-xs text-slate-500 max-w-4xl mx-auto leading-relaxed border-t border-slate-200 pt-8">
+            <p><strong>Data sources:</strong> The Points Guy 2026 transfer partner guides for Chase Ultimate Rewards and Citi ThankYou Points. All ratios verified for 2026. Transfer times: Chase — instant except Singapore KrisFlyer (~48 hours). Citi — instant to 14 days, typically under 24 hours.</p>
+        </div>
+    </div>
+
+    <!-- Drawer -->
+    <div id="airline-drawer" class="fixed inset-0 z-[100] pointer-events-none">
+        <div id="drawer-backdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        <div id="drawer-panel" class="absolute inset-x-0 bottom-0 md:inset-auto md:right-0 md:top-0 h-[88vh] md:h-full w-full md:max-w-[520px] bg-[#fcfdff] shadow-2xl translate-y-full md:translate-y-0 md:translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] rounded-t-[28px] md:rounded-l-[28px] md:rounded-tr-none border-t md:border-l border-slate-200 flex flex-col">
+            <div class="shrink-0 px-6 pt-5 pb-4 border-b border-slate-200/70 bg-white/70 backdrop-blur rounded-t-[28px] md:rounded-l-[28px] md:rounded-tr-none sticky top-0 z-10">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div id="drawer-logo" class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-600 text-white grid place-items-center text-xl font-bold shadow-lg">XX</div>
+                        <div>
+                            <h3 id="drawer-title" class="text-[22px] font-semibold leading-tight text-slate-900">Airline Name</h3>
+                            <p class="text-xs text-slate-500 mt-0.5">Click outside or press ESC to close</p>
+                        </div>
+                    </div>
+                    <button id="drawer-close" class="w-9 h-9 grid place-items-center rounded-xl hover:bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto scrollbar-thin px-6 py-6">
+                <div class="grid md:grid-cols-2 gap-5">
+                    <!-- Chase Column -->
+                    <div id="chase-col" class="relative rounded-[20px] border-2 border-slate-200 bg-white p-5 transition-all duration-300">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-lg bg-[#117ACA] grid place-items-center shadow-md shadow-sky-900/20">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+                                </div>
+                                <span class="font-semibold text-slate-900">Chase</span>
+                            </div>
+                            <span id="chase-badge" class="text-[11px] font-semibold px-2.5 py-1 rounded-full"></span>
+                        </div>
+                        <div id="chase-content" class="space-y-3.5 text-[14px]"></div>
+                    </div>
+
+                    <!-- Citi Column -->
+                    <div id="citi-col" class="relative rounded-[20px] border-2 border-slate-200 bg-white p-5 transition-all duration-300">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-lg bg-[#056DAE] grid place-items-center shadow-md shadow-blue-900/20">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+                                </div>
+                                <span class="font-semibold text-slate-900">Citi</span>
+                            </div>
+                            <span id="citi-badge" class="text-[11px] font-semibold px-2.5 py-1 rounded-full"></span>
+                        </div>
+                        <div id="citi-content" class="space-y-3.5 text-[14px]"></div>
+                    </div>
+                </div>
+
+                <div id="recommendation" class="mt-6 p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 hidden">
+                    <div class="flex gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white grid place-items-center shrink-0 mt-0.5">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-emerald-900 text-[14px]">Recommended: <span id="rec-program"></span></div>
+                            <p id="rec-reason" class="text-[13px] text-emerald-800/80 mt-1 leading-snug"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Transfer Notes</h4>
+                    <ul class="text-[12px] text-slate-600 space-y-1.5 leading-snug">
+                        <li>• <strong>Chase:</strong> Instant transfers* • 1,000-point increments • *Singapore KrisFlyer ~48 hours</li>
+                        <li>• <strong>Citi:</strong> Instant to 14 days (typically &lt;24h) • 1,000-point minimum</li>
+                        <li>• Always confirm award availability before transferring — transfers are irreversible</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const airlinesData = [
+            { id:'aer-lingus', name:'Aer Lingus AerClub', initials:'EI', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points'}, citi:{available:false} },
+            { id:'aeromexico', name:'Aeromexico Rewards', initials:'AM', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points',notes:'Typically <24h'} },
+            { id:'air-canada', name:'Air Canada Aeroplan', initials:'AC', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points',notes:'Star Alliance'}, citi:{available:false} },
+            { id:'flying-blue', name:'Air France-KLM Flying Blue', initials:'AF', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points'}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points',notes:'Typically <24h'} },
+            { id:'american', name:'American Airlines AAdvantage', initials:'AA', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points',notes:'Citi exclusive'} },
+            { id:'avianca', name:'Avianca LifeMiles', initials:'AV', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points',notes:'Star Alliance'} },
+            { id:'british-airways', name:'British Airways Club', initials:'BA', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points',notes:'Avios'}, citi:{available:false} },
+            { id:'cathay', name:'Cathay Pacific Asia Miles', initials:'CX', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points'} },
+            { id:'emirates', name:'Emirates Skywards', initials:'EK', chase:{available:false}, citi:{available:true,ratio:'5:4',time:'Instant to 14 days',min:'1,000 points',notes:'1,000 → 800 miles'} },
+            { id:'etihad', name:'Etihad Guest', initials:'EY', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points'} },
+            { id:'eva', name:'EVA Air Infinity MileageLands', initials:'BR', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points'} },
+            { id:'iberia', name:'Iberia Plus', initials:'IB', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points',notes:'Avios'}, citi:{available:false} },
+            { id:'jetblue', name:'JetBlue TrueBlue', initials:'B6', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points'}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points'} },
+            { id:'qantas', name:'Qantas Frequent Flyer', initials:'QF', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points'} },
+            { id:'qatar', name:'Qatar Airways Privilege Club', initials:'QR', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points',notes:'Great for Qsuites'} },
+            { id:'singapore', name:'Singapore Airlines KrisFlyer', initials:'SQ', chase:{available:true,ratio:'1:1',time:'~48 hours',min:'1,000 points',notes:'Only Chase non-instant'}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points',notes:'Typically <24h'} },
+            { id:'southwest', name:'Southwest Rapid Rewards', initials:'WN', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points',notes:'Chase exclusive'}, citi:{available:false} },
+            { id:'thai', name:'Thai Royal Orchid Plus', initials:'TG', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points'} },
+            { id:'turkish', name:'Turkish Airlines Miles&Smiles', initials:'TK', chase:{available:false}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points'} },
+            { id:'united', name:'United MileagePlus', initials:'UA', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points',notes:'Chase exclusive'}, citi:{available:false} },
+            { id:'virgin-atlantic', name:'Virgin Atlantic Flying Club', initials:'VS', chase:{available:true,ratio:'1:1',time:'Instant',min:'1,000 points'}, citi:{available:true,ratio:'1:1',time:'Instant to 14 days',min:'1,000 points'} },
+        ];
+
+        const grid = document.getElementById('airline-grid');
+        const search = document.getElementById('airline-search');
+        const searchCount = document.getElementById('search-count');
+        const drawer = document.getElementById('airline-drawer');
+        const backdrop = document.getElementById('drawer-backdrop');
+        const panel = document.getElementById('drawer-panel');
+        const drawerLogo = document.getElementById('drawer-logo');
+        const drawerTitle = document.getElementById('drawer-title');
+        const chaseCol = document.getElementById('chase-col');
+        const citiCol = document.getElementById('citi-col');
+        const chaseBadge = document.getElementById('chase-badge');
+        const citiBadge = document.getElementById('citi-badge');
+        const chaseContent = document.getElementById('chase-content');
+        const citiContent = document.getElementById('citi-content');
+        const recommendation = document.getElementById('recommendation');
+        const recProgram = document.getElementById('rec-program');
+        const recReason = document.getElementById('rec-reason');
+        const chaseSource = document.getElementById('chase-source');
+        const citiSource = document.getElementById('citi-source');
+
+        let selectedId = null;
+
+        function renderGrid(filter = '') {
+            const filtered = airlinesData.filter(a => a.name.toLowerCase().includes(filter.toLowerCase()));
+            searchCount.textContent = `${filtered.length} of 21 airlines`;
+            
+            grid.innerHTML = filtered.map(a => `
+                <button data-id="${a.id}" class="airline-card group text-left bg-white border border-slate-200 hover:border-slate-300 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 ${selectedId === a.id ? 'selected' : ''}">
+                    <div class="flex items-start gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-slate-800 to-slate-600 text-white flex items-center justify-center text-[13px] font-bold shadow-inner shrink-0 group-hover:scale-105 transition-transform">${a.initials}</div>
+                        <div class="flex-1 min-w-0">
+                            <div class="font-medium text-slate-900 leading-tight truncate pr-2">${a.name}</div>
+                            <div class="flex gap-1.5 mt-2.5">
+                                ${a.chase.available ? `<span class="px-2 py-0.5 text-[10px] font-semibold rounded-md bg-sky-50 text-[#117ACA] border border-sky-200">Chase</span>` : ''}
+                                ${a.citi.available ? `<span class="px-2 py-0.5 text-[10px] font-semibold rounded-md bg-cyan-50 text-[#056DAE] border border-cyan-200">Citi</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="text-slate-300 group-hover:text-slate-500 transition-colors mt-1">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                    </div>
+                </button>
+            `).join('');
+
+            document.querySelectorAll('.airline-card').forEach(btn => {
+                btn.addEventListener('click', () => openDrawer(btn.dataset.id));
+            });
+        }
+
+        function programContent(program, data) {
+            if (!data.available) {
+                return `
+                    <div class="flex items-center gap-2 text-slate-400">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+                        <span class="font-medium">Not Available</span>
+                    </div>
+                    <div class="mt-4 p-3 rounded-xl bg-slate-50 text-[12px] text-slate-500">This airline is not a transfer partner for ${program}.</div>
+                `;
+            }
+            return `
+                <div class="flex items-center gap-2 text-emerald-600">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                    <span class="font-semibold">Available</span>
+                </div>
+                <div class="mt-4 space-y-3">
+                    <div><div class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Transfer Ratio</div><div class="text-[15px] font-semibold text-slate-900 mt-0.5">${data.ratio} ${data.ratio === '1:1' ? '<span class="text-xs font-normal text-emerald-600 ml-1">• Best</span>' : ''}</div></div>
+                    <div><div class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Transfer Time</div><div class="text-[15px] font-medium text-slate-900 mt-0.5">${data.time}</div></div>
+                    <div><div class="text-[11px] uppercase tracking-wide text-slate-500 font-medium">Minimum</div><div class="text-[15px] font-medium text-slate-900 mt-0.5">${data.min}</div></div>
+                    ${data.notes ? `<div class="pt-2 border-t border-slate-100"><div class="text-[12px] text-slate-600">${data.notes}</div></div>` : ''}
+                </div>
+            `;
+        }
+
+        function openDrawer(id) {
+            const airline = airlinesData.find(a => a.id === id);
+            if (!airline) return;
+            
+            selectedId = id;
+            renderGrid(search.value);
+
+            // Update drawer
+            drawerLogo.textContent = airline.initials;
+            drawerTitle.textContent = airline.name;
+            
+            // Chase
+            const cAvail = airline.chase.available;
+            chaseBadge.className = `text-[11px] font-semibold px-2.5 py-1 rounded-full ${cAvail ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'}`;
+            chaseBadge.textContent = cAvail ? 'Available' : 'Not Available';
+            chaseContent.innerHTML = programContent('Chase Ultimate Rewards', airline.chase);
+            
+            // Citi
+            const tAvail = airline.citi.available;
+            citiBadge.className = `text-[11px] font-semibold px-2.5 py-1 rounded-full ${tAvail ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'}`;
+            citiBadge.textContent = tAvail ? 'Available' : 'Not Available';
+            citiContent.innerHTML = programContent('Citi ThankYou', airline.citi);
+
+            // Highlight sources
+            chaseSource.classList.toggle('source-active', cAvail);
+            citiSource.classList.toggle('citi-active', tAvail);
+
+            // Recommendation
+            chaseCol.classList.remove('ring-2','ring-[#117ACA]','ring-offset-2');
+            citiCol.classList.remove('ring-2','ring-[#056DAE]','ring-offset-2');
+            recommendation.classList.add('hidden');
+
+            if (cAvail && tAvail) {
+                const bothOneToOne = airline.chase.ratio === '1:1' && airline.citi.ratio === '1:1';
+                let winner = 'chase', reason = 'Instant transfer vs Citi\'s up to 14 days';
+                if (airline.id === 'singapore') {
+                    winner = 'citi';
+                    reason = 'Citi typically <24h vs Chase ~48 hours, both 1:1';
+                } else if (!bothOneToOne) {
+                    winner = 'chase';
+                    reason = 'Same ratio but instant';
+                }
+                recProgram.textContent = winner === 'chase' ? 'Chase Ultimate Rewards' : 'Citi ThankYou';
+                recReason.textContent = reason;
+                recommendation.classList.remove('hidden');
+                (winner === 'chase' ? chaseCol : citiCol).classList.add('ring-2', winner === 'chase' ? 'ring-[#117ACA]' : 'ring-[#056DAE]', 'ring-offset-2');
+            } else if (cAvail) {
+                chaseCol.classList.add('ring-2','ring-[#117ACA]','ring-offset-2');
+            } else if (tAvail) {
+                citiCol.classList.add('ring-2','ring-[#056DAE]','ring-offset-2');
+            }
+
+            // Open drawer
+            drawer.classList.remove('pointer-events-none');
+            backdrop.classList.add('opacity-100');
+            panel.classList.remove('translate-y-full', 'md:translate-x-full');
+            panel.classList.add('translate-y-0', 'md:translate-x-0');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            panel.classList.add('translate-y-full', 'md:translate-x-full');
+            panel.classList.remove('translate-y-0', 'md:translate-x-0');
+            backdrop.classList.remove('opacity-100');
+            setTimeout(() => {
+                drawer.classList.add('pointer-events-none');
+                document.body.style.overflow = '';
+                chaseSource.classList.remove('source-active');
+                citiSource.classList.remove('citi-active');
+                selectedId = null;
+                renderGrid(search.value);
+            }, 300);
+        }
+
+        search.addEventListener('input', (e) => renderGrid(e.target.value));
+        document.getElementById('drawer-close').addEventListener('click', closeDrawer);
+        backdrop.addEventListener('click', closeDrawer);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+        // Init
+        renderGrid();
+    </script>
+<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
+</body>
+</html>
