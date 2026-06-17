@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage Index — Curated Projects</title>
+    <title>Gideon's Travel Index</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -528,8 +528,8 @@
     <div class="wrap">
         <header>
             <div class="header-content">
-                <h1>Webpage Index</h1>
-                <p>A curated list of projects</p>
+                <h1>Gideon's Travel Index</h1>
+                <p>Collected information index on travelling</p>
             </div>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                 <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -541,8 +541,8 @@
 
         <main>
             <div class="list-header">
-                <div class="list-title">Hub Directories</div>
-                <div class="list-count">1</div>
+                <div class="list-title">Indexes</div>
+                <div class="list-count">2</div>
             </div>
 
             <div class="list">
@@ -566,16 +566,32 @@
                         </svg>
                     </div>
                 </a>
+
+                <a href="/comparison/qatar/singapore" class="card">
+                    <div class="card-left">
+                        <div class="icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">
+                                Business Class Honeymoon: Qatar vs. Singapore
+                            </div>
+                            <div class="card-desc">Qsuites vs. Singapore cabins compared on product, service, and routes</div>
+                        </div>
+                    </div>
+                    <div class="card-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </div>
+                </a>
             </div>
         </main>
 
         <footer>
-            <div class="footer-left">
-                <span>Created 2026</span>
-                <span class="dot"></span>
-                <span>OneWorld Hub Directory</span>
-            </div>
-            <div>Updated January</div>
+            <span>Copyright 2026</span>
         </footer>
     </div>
 
@@ -610,6 +626,7 @@
             });
         })();
     </script>
+<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
 <script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
 </body>
 </html>
