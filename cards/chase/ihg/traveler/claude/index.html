@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IHG One Rewards — The Traveler's Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16213e;
+    --ink-soft:#26365e;
+    --paper:#f1e8d6;
+    --paper-dim:#e6daba;
+    --brass:#b6862c;
+    --brass-light:#d9af56;
+    --stamp:#a8412f;
+    --ledger:#7c6a4e;
+    --teal:#3f6657;
+    --teal-light:#6e9c87;
+    --cream-text:#f1e8d6;
+    --ink-text:#1c1a16;
+    --space-1:.5rem;
+    --space-2:1rem;
+    --space-3:1.75rem;
+    --space-4:3rem;
+    --space-5:5rem;
+    --radius:2px;
+    --font-display:'Big Shoulders Display',sans-serif;
+    --font-mono:'Space Mono',monospace;
+    --font-body:'Work Sans',sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink-text);
+    background:var(--paper);
+    line-height:1.5;
+  }
+
+  img,svg{display:block;max-width:100%;}
+
+  a{color:inherit;}
+
+  .visually-hidden{
+    position:absolute; width:1px;height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;
+  }
+
+  :focus-visible{
+    outline:3px solid var(--brass-light);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding-inline:var(--space-3);
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:.72rem;
+    font-weight:700;
+  }
+
+  .h2{
+    font-family:var(--font-display);
+    font-weight:800;
+    text-transform:uppercase;
+    line-height:1.02;
+    letter-spacing:.01em;
+    font-size:clamp(1.9rem,4.4vw,3.1rem);
+    margin:.4rem 0 0;
+  }
+
+  .lede{
+    font-size:1.05rem;
+    max-width:46ch;
+    margin:var(--space-2) 0 0;
+    color:var(--ink-soft);
+  }
+
+  section{
+    padding:var(--space-5) 0;
+    border-bottom:1px solid rgba(124,106,78,.35);
+  }
+
+  section:last-of-type{border-bottom:none;}
+
+  .on-dark{
+    background:var(--ink);
+    color:var(--cream-text);
+    border-bottom:1px solid rgba(241,232,214,.12);
+  }
+
+  .on-dark .eyebrow{color:var(--brass-light);}
+  .on-dark .lede{color:#c7cee0;}
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    background:var(--ink);
+    color:var(--cream-text);
+    padding-top:var(--space-5);
+    padding-bottom:var(--space-5);
+    position:relative;
+    overflow:hidden;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(241,232,214,.035) 0 1px, transparent 1px 28px);
+    pointer-events:none;
+  }
+
+  .hero-inner{position:relative;}
+
+  .hero .eyebrow{color:var(--brass-light);}
+
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:clamp(2.4rem,6.6vw,4.6rem);
+    line-height:.98;
+    margin:.5rem 0 0;
+    max-width:18ch;
+  }
+
+  .hero .lede{color:#c7cee0;}
+
+  .calc{
+    margin-top:var(--space-4);
+    background:rgba(241,232,214,.06);
+    border:1px solid rgba(241,232,214,.22);
+    border-radius:var(--radius);
+    padding:var(--space-3);
+  }
+
+  .calc-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:var(--space-2);
+    flex-wrap:wrap;
+  }
+
+  .calc-label{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:.78rem;
+    color:#c7cee0;
+  }
+
+  .calc-points{
+    font-family:var(--font-mono);
+    font-weight:700;
+    font-size:clamp(1.6rem,4vw,2.2rem);
+    color:var(--brass-light);
+  }
+
+  input[type="range"]{
+    width:100%;
+    margin-top:var(--space-2);
+    accent-color:var(--brass-light);
+    height:6px;
+    cursor:pointer;
+  }
+
+  .calc-results{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:var(--space-2);
+    margin-top:var(--space-3);
+  }
+
+  .calc-card{
+    border:1px solid rgba(241,232,214,.22);
+    padding:var(--space-2);
+    border-radius:var(--radius);
+  }
+
+  .calc-card .tag{
+    font-family:var(--font-mono);
+    font-size:.68rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#9aa6c7;
+  }
+
+  .calc-card .value{
+    font-family:var(--font-mono);
+    font-weight:700;
+    font-size:clamp(1.2rem,3vw,1.6rem);
+    margin-top:.25rem;
+    color:var(--cream-text);
+  }
+
+  .calc-card .rate{
+    font-size:.78rem;
+    color:#9aa6c7;
+    margin-top:.15rem;
+  }
+
+  .calc-foot{
+    font-size:.85rem;
+    color:#9aa6c7;
+    margin-top:var(--space-2);
+  }
+
+  @media (max-width:640px){
+    .calc-results{grid-template-columns:1fr;}
+  }
+
+  /* ---------- LADDER ---------- */
+
+  .ladder-track{
+    margin-top:var(--space-4);
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:var(--space-2);
+    align-items:start;
+  }
+
+  @media (max-width:900px){
+    .ladder-track{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .ladder-track{grid-template-columns:1fr;}
+  }
+
+  .flip-card{
+    perspective:1000px;
+    height:220px;
+  }
+
+  .flip-card button{
+    all:unset;
+    display:block;
+    width:100%;
+    height:100%;
+    cursor:pointer;
+  }
+
+  .flip-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform .55s cubic-bezier(.2,.7,.3,1);
+    transform-style:preserve-3d;
+  }
+
+  [data-flip] button[aria-pressed="true"] .flip-inner{
+    transform:rotateY(180deg);
+  }
+
+  .flip-face{
+    position:absolute;
+    inset:0;
+    border-radius:var(--radius);
+    backface-visibility:hidden;
+    padding:var(--space-2);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:left;
+  }
+
+  .flip-front{
+    background:var(--paper-dim);
+    border:1px dashed var(--ledger);
+  }
+
+  .flip-front .num{
+    font-family:var(--font-mono);
+    font-weight:700;
+    font-size:1.4rem;
+    color:var(--stamp);
+  }
+
+  .flip-front .name{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    font-weight:700;
+    font-size:1.05rem;
+    margin-top:.4rem;
+    line-height:1.1;
+  }
+
+  .flip-front .hint{
+    font-family:var(--font-mono);
+    font-size:.68rem;
+    color:var(--ledger);
+    margin-top:auto;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+
+  .flip-back{
+    background:var(--ink);
+    color:var(--cream-text);
+    transform:rotateY(180deg);
+    font-size:.88rem;
+  }
+
+  .flip-back .back-label{
+    font-family:var(--font-mono);
+    color:var(--brass-light);
+    text-transform:uppercase;
+    font-size:.65rem;
+    letter-spacing:.08em;
+    margin-bottom:.4rem;
+  }
+
+  .ladder-caption{
+    font-size:.85rem;
+    color:var(--ledger);
+    margin-top:var(--space-2);
+  }
+
+  /* ---------- STAMPS ---------- */
+
+  .stamp-grid{
+    margin-top:var(--space-4);
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:var(--space-2);
+  }
+
+  @media (max-width:900px){
+    .stamp-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .stamp-grid{grid-template-columns:1fr;}
+  }
+
+  .stamp-card{height:240px; perspective:1000px;}
+
+  .stamp-card button{all:unset; display:block; width:100%; height:100%; cursor:pointer;}
+
+  .stamp-front{
+    background:transparent;
+    border:2px solid var(--brass-light);
+    align-items:center;
+    text-align:center;
+  }
+
+  .stamp-circle{
+    width:74px;height:74px;border-radius:50%;
+    border:3px solid var(--stamp);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-mono);font-weight:700;font-size:1.5rem;
+    color:var(--stamp);
+    transform:rotate(-8deg);
+    margin:0 auto .6rem;
+  }
+
+  .stamp-front .name{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    font-weight:800;
+    font-size:1.15rem;
+  }
+
+  .stamp-front .status{
+    font-family:var(--font-mono);
+    font-size:.68rem;
+    letter-spacing:.06em;
+    margin-top:.5rem;
+    color:var(--ledger);
+  }
+
+  .stamp-back{
+    background:var(--ink);
+    color:var(--cream-text);
+    font-size:.84rem;
+    text-align:left;
+  }
+
+  .stamp-back .back-label{
+    font-family:var(--font-mono);
+    color:var(--brass-light);
+    text-transform:uppercase;
+    font-size:.65rem;
+    letter-spacing:.08em;
+    margin-bottom:.4rem;
+  }
+
+  /* ---------- BOARD (signature element) ---------- */
+
+  .board-frame{
+    margin-top:var(--space-4);
+    background:var(--ink);
+    border:6px solid #0d1428;
+    border-radius:4px;
+    padding:var(--space-2);
+    box-shadow:0 18px 40px -20px rgba(0,0,0,.5);
+  }
+
+  .board-row{
+    display:grid;
+    grid-template-columns:1fr 2.4fr 1.1fr 1fr;
+    gap:var(--space-2);
+    align-items:center;
+    padding:.75rem var(--space-1);
+    border-bottom:1px solid rgba(241,232,214,.08);
+  }
+
+  .board-row:last-child{border-bottom:none;}
+
+  .board-row.head{
+    color:#7f8ab1;
+    font-family:var(--font-mono);
+    font-size:.65rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    padding-bottom:.5rem;
+  }
+
+  .flap{
+    font-family:var(--font-mono);
+    color:var(--cream-text);
+    background:#0d1428;
+    border-radius:2px;
+    padding:.5rem .6rem;
+    font-size:.92rem;
+    letter-spacing:.03em;
+    min-height:1.4em;
+  }
+
+  .board-row .flap.date{color:#9aa6c7;}
+  .board-row .flap.points{color:var(--brass-light); font-weight:700; text-align:right;}
+  .board-row .tag-status{
+    font-family:var(--font-mono);
+    font-size:.68rem;
+    text-align:center;
+    padding:.35rem .4rem;
+    border-radius:2px;
+    letter-spacing:.05em;
+  }
+  .tag-status.live{background:var(--teal); color:#eafff3;}
+  .tag-status.best{background:var(--stamp); color:#ffe9e4;}
+  .tag-status.none{visibility:hidden;}
+
+  @media (max-width:720px){
+    .board-row{grid-template-columns:1fr; gap:.35rem; text-align:left;}
+    .board-row.head{display:none;}
+    .flap.points{text-align:left;}
+    .board-row{padding-bottom:1rem; margin-bottom:.4rem; border-bottom:1px dashed rgba(241,232,214,.18);}
+  }
+
+  .board-caption{
+    margin-top:var(--space-2);
+    font-size:.85rem;
+  }
+
+  /* ---------- QUIZ ---------- */
+
+  .quiz-grid{
+    margin-top:var(--space-4);
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:var(--space-4);
+    align-items:start;
+  }
+
+  @media (max-width:800px){
+    .quiz-grid{grid-template-columns:1fr;}
+  }
+
+  .quiz-q{margin-bottom:var(--space-3);}
+
+  .quiz-q p{
+    font-weight:600;
+    margin:0 0 .6rem;
+  }
+
+  .toggle-pair{display:flex; gap:.6rem;}
+
+  .toggle-btn{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    font-size:.74rem;
+    letter-spacing:.06em;
+    padding:.5rem 1.1rem;
+    border:1px solid rgba(241,232,214,.35);
+    background:transparent;
+    color:var(--cream-text);
+    border-radius:20px;
+    cursor:pointer;
+  }
+
+  .toggle-btn[aria-pressed="true"]{
+    background:var(--brass-light);
+    color:var(--ink);
+    border-color:var(--brass-light);
+  }
+
+  .ticket{
+    background:var(--paper);
+    color:var(--ink-text);
+    border-radius:4px;
+    padding:var(--space-3);
+    position:relative;
+    border:2px solid var(--ink);
+  }
+
+  .ticket::before,.ticket::after{
+    content:"";
+    position:absolute;
+    width:22px;height:22px;
+    background:var(--ink);
+    border-radius:50%;
+    top:50%;
+    transform:translateY(-50%);
+  }
+  .ticket::before{left:-11px;}
+  .ticket::after{right:-11px;}
+
+  .ticket .status-label{
+    font-family:var(--font-mono);
+    font-size:.7rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ledger);
+  }
+
+  .ticket .status-verdict{
+    font-family:var(--font-display);
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:clamp(1.4rem,3vw,1.9rem);
+    line-height:1.05;
+    margin:.25rem 0 .6rem;
+  }
+
+  .ticket .status-verdict.go{color:var(--teal);}
+  .ticket .status-verdict.wait{color:var(--brass);}
+  .ticket .status-verdict.no{color:var(--stamp);}
+
+  .ticket .status-detail{font-size:.92rem;}
+  .ticket .status-note{
+    margin-top:.8rem;
+    padding-top:.8rem;
+    border-top:1px dashed var(--ledger);
+    font-size:.82rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  .footer{
+    background:var(--ink);
+    color:#8b95b8;
+    padding:var(--space-4) 0;
+    font-size:.82rem;
+  }
+
+  .footer strong{color:var(--cream-text);}
+
+  .footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    gap:var(--space-3);
+    flex-wrap:wrap;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">A FIELD GUIDE — JUNE 2026</p>
+    <h1>What is an IHG&nbsp;point actually worth?</h1>
+    <p class="lede">Move the slider. These ranges come from analysts who compared thousands of real points-vs-cash hotel bookings — not a maximized fantasy redemption.</p>
+
+    <div class="calc">
+      <div class="calc-top">
+        <span class="calc-label">Points in your account</span>
+        <span class="calc-points" id="pointsReadout">50,000</span>
+      </div>
+      <label class="visually-hidden" for="pointsSlider">Number of IHG One Rewards points</label>
+      <input type="range" id="pointsSlider" min="5000" max="300000" step="1000" value="50000">
+
+      <div class="calc-results">
+        <div class="calc-card">
+          <p class="tag">Rough night</p>
+          <p class="value" id="valLow">$250</p>
+          <p class="rate">≈0.5¢ / pt</p>
+        </div>
+        <div class="calc-card">
+          <p class="tag">Typical night</p>
+          <p class="value" id="valMid">$295</p>
+          <p class="rate">≈0.59¢ / pt — published median</p>
+        </div>
+        <div class="calc-card">
+          <p class="tag">Cherry‑picked night</p>
+          <p class="value" id="valHigh">$500</p>
+          <p class="rate">≈1.0¢ / pt — with 4th‑night‑free stacked in</p>
+        </div>
+      </div>
+      <p class="calc-foot">For reference: IHG's own purchase price floor is about 0.5¢/pt during a 100% bonus sale — so paying cash for points rarely beats just earning them.</p>
+    </div>
+  </div>
+</header>
+
+<section class="ladder">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--stamp)">The redemption ladder</p>
+    <h2 class="h2 reveal">From a rumored floor<br>to a Roman ceiling</h2>
+    <p class="lede reveal">IHG hasn't published an award chart since 2020 — prices float with cash rates and demand. This is the realistic range, low to high. Flip a card.</p>
+
+    <div class="ladder-track reveal">
+      <div class="flip-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <p class="num">5,000</p>
+              <p class="name">The rumored floor</p>
+              <p class="hint">Tap to flip →</p>
+            </div>
+            <div class="flip-face flip-back">
+              <p class="back-label">Reality check</p>
+              <p>Seen occasionally at the cheapest properties in small markets. Almost never available in cities or during peak season — a curiosity, not a plan.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="flip-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <p class="num">10–15K</p>
+              <p class="name">The realistic floor</p>
+              <p class="hint">Tap to flip →</p>
+            </div>
+            <div class="flip-face flip-back">
+              <p class="back-label">Where this shows up</p>
+              <p>IHG's quarterly PointBreaks list and off‑peak Holiday Inn Express nights. Worth roughly $50–$90 — the best routine value in the program.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="flip-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <p class="num">20–50K</p>
+              <p class="name">InterContinental, reachable cities</p>
+              <p class="hint">Tap to flip →</p>
+            </div>
+            <div class="flip-face flip-back">
+              <p class="back-label">Real examples</p>
+              <p>InterContinental Grand Stanford Hong Kong: 20,000–50,000 pts/night. InterContinental Madrid: 35,000–40,000 pts/night.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="flip-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <p class="num">~70K</p>
+              <p class="name">Kimpton, resort tier</p>
+              <p class="hint">Tap to flip →</p>
+            </div>
+            <div class="flip-face flip-back">
+              <p class="back-label">Real example</p>
+              <p>Kimpton Seafire Grand Cayman runs about 70,000 pts/night. Stack the 4th‑night‑free perk over a 4‑night stay and the effective rate drops to ~52,500/night.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="flip-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <p class="num">200–275K+</p>
+              <p class="name">Six Senses, the ceiling</p>
+              <p class="hint">Tap to flip →</p>
+            </div>
+            <div class="flip-face flip-back">
+              <p class="back-label">Real example</p>
+              <p>Six Senses Rome has been quoted at 275,000 pts vs. €1,444 cash for one night — fair value on paper, but an enormous pile of points to hand over.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <p class="ladder-caption">Dynamic pricing means every number above can move night to night — treat this as a map of the terrain, not a quote.</p>
+  </div>
+</section>
+
+<section class="stamps on-dark">
+  <div class="wrap">
+    <p class="eyebrow">Passport check</p>
+    <h2 class="h2 reveal">Does IHG have a luxury stamp here?</h2>
+    <p class="lede reveal">Five destinations, checked against IHG's luxury &amp; lifestyle brands — InterContinental, Regent, Six Senses, Kimpton, and Vignette Collection. Tap a stamp.</p>
+
+    <div class="stamp-grid reveal">
+      <div class="stamp-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face stamp-front">
+              <div class="stamp-circle">HK</div>
+              <p class="name">Hong Kong</p>
+              <p class="status">✓ Three luxury brands</p>
+            </div>
+            <div class="flip-face stamp-back">
+              <p class="back-label">On the ground</p>
+              <p>InterContinental Grand Stanford • Regent Hong Kong (the original InterContinental, rebranded 2023) • Kimpton Tsim Sha Tsui, a 2026 arrival named to Condé Nast's Hot List.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="stamp-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face stamp-front">
+              <div class="stamp-circle">MO</div>
+              <p class="name">Macau</p>
+              <p class="status">✓ On the Cotai Strip</p>
+            </div>
+            <div class="flip-face stamp-back">
+              <p class="back-label">On the ground</p>
+              <p>Three InterContinental Alliance Resorts sit inside the Cotai Strip mega‑resorts: The Parisian, The Venetian, and The Londoner.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="stamp-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face stamp-front">
+              <div class="stamp-circle">DE</div>
+              <p class="name">Germany</p>
+              <p class="status">✓ Deepest bench</p>
+            </div>
+            <div class="flip-face stamp-back">
+              <p class="back-label">On the ground</p>
+              <p>Four luxury brands open or signed: InterContinental's freshly refurbished Berlin flagship, Regent, Kimpton Frankfurt, and three Vignette Collection conversions — including a castle on the Rhine.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="stamp-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face stamp-front">
+              <div class="stamp-circle">AT</div>
+              <p class="name">Austria</p>
+              <p class="status">△ Arriving, not yet deep</p>
+            </div>
+            <div class="flip-face stamp-back">
+              <p class="back-label">On the ground</p>
+              <p>InterContinental is already open. Kimpton Salzburg is signed — its first Austrian property — but isn't due to open until 2028. No Regent or Six Senses yet.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="stamp-card" data-flip>
+        <button type="button" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-face stamp-front">
+              <div class="stamp-circle">IT</div>
+              <p class="name">Italy</p>
+              <p class="status">✓ Strongest portfolio</p>
+            </div>
+            <div class="flip-face stamp-back">
+              <p class="back-label">On the ground</p>
+              <p>Six Senses Rome and InterContinental Rome Ambasciatori Palace both opened in 2023. Vignette Collection has added three Italian signings in two years, including a property in Venice's historic centre.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--stamp)">Gate history</p>
+    <h2 class="h2 reveal">The Traveler Card's bonus,<br>flight by flight</h2>
+    <p class="lede reveal">No annual fee, frequently re‑priced. Here's every offer worth noting over the past year — watch the points column settle.</p>
+
+    <div class="board-frame reveal" id="board">
+      <div class="board-row head">
+        <span>Date</span><span>Offer structure</span><span>Points</span><span>Status</span>
+      </div>
+
+      <div class="board-row" data-points="≈140,000">
+        <span class="flap date">SEP 2025</span>
+        <span class="flap">2 Free Nights (~50K) + 40,000 pts</span>
+        <span class="flap points">≈140,000</span>
+        <span class="tag-status best">Best on record</span>
+      </div>
+
+      <div class="board-row" data-points="80,000">
+        <span class="flap date">OCT 2025</span>
+        <span class="flap">Standard offer</span>
+        <span class="flap points">80,000</span>
+        <span class="tag-status none">—</span>
+      </div>
+
+      <div class="board-row" data-points="120,000">
+        <span class="flap date">JAN 2026</span>
+        <span class="flap">Limited promo + 6‑month category bonus</span>
+        <span class="flap points">120,000</span>
+        <span class="tag-status none">—</span>
+      </div>
+
+      <div class="board-row" data-points="80,000">
+        <span class="flap date">MAR 2026</span>
+        <span class="flap">Reverted to standard</span>
+        <span class="flap points">80,000</span>
+        <span class="tag-status none">—</span>
+      </div>
+
+      <div class="board-row" data-points="125,000">
+        <span class="flap date">NOW</span>
+        <span class="flap">Current offer — $2K then $4K total spend</span>
+        <span class="flap points">125,000</span>
+        <span class="tag-status live">Live</span>
+      </div>
+    </div>
+    <p class="board-caption">Highest raw point count on record sits at the top right now — but the Sept 2025 free‑nights structure remains the best by total value. Offers like this disappear and reappear without much warning.</p>
+  </div>
+</section>
+
+<section class="quiz on-dark">
+  <div class="wrap">
+    <p class="eyebrow">Boarding status</p>
+    <h2 class="h2 reveal">Should you apply right now?</h2>
+    <p class="lede reveal">Answer honestly. This mirrors the actual eligibility rules, not just the bonus size.</p>
+
+    <div class="quiz-grid reveal">
+      <div>
+        <div class="quiz-q">
+          <p>Have you earned a new‑cardmember bonus on either personal IHG card in the last 24 months?</p>
+          <div class="toggle-pair" data-question="q1">
+            <button class="toggle-btn" data-value="yes" aria-pressed="false">Yes</button>
+            <button class="toggle-btn" data-value="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+        <div class="quiz-q">
+          <p>Have you opened 5 or more cards, from any bank, in the last 24 months?</p>
+          <div class="toggle-pair" data-question="q2">
+            <button class="toggle-btn" data-value="yes" aria-pressed="false">Yes</button>
+            <button class="toggle-btn" data-value="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+        <div class="quiz-q">
+          <p>Is today's public offer at or above 100,000 points?</p>
+          <div class="toggle-pair" data-question="q3">
+            <button class="toggle-btn" data-value="yes" aria-pressed="true">Yes</button>
+            <button class="toggle-btn" data-value="no" aria-pressed="false">No</button>
+          </div>
+        </div>
+        <div class="quiz-q">
+          <p>Do you stay at IHG hotels several times a year?</p>
+          <div class="toggle-pair" data-question="q4">
+            <button class="toggle-btn" data-value="yes" aria-pressed="false">Yes</button>
+            <button class="toggle-btn" data-value="no" aria-pressed="true">No</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticket" id="ticket">
+        <p class="status-label">Verdict</p>
+        <p class="status-verdict go" id="verdictTitle">Boarding now</p>
+        <p class="status-detail" id="verdictDetail">You're clear on both eligibility rules, and today's offer is an elevated one — this is a good time to apply.</p>
+        <p class="status-note" id="verdictNote" style="display:none;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <p style="max-width:60ch;"><strong>About this page.</strong> Figures are illustrative, gathered from public valuation work (TPG, Frequent Miler/Gondola, Bankrate, NerdWallet, WalletHub) and IHG/Chase's own published terms as of June 2026. IHG repricing is dynamic — re‑check current numbers before booking or applying. Not financial advice.</p>
+    <p>Built as a one‑page reference,<br>not a booking tool.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Calculator ---- */
+  var slider = document.getElementById('pointsSlider');
+  var pointsReadout = document.getElementById('pointsReadout');
+  var valLow = document.getElementById('valLow');
+  var valMid = document.getElementById('valMid');
+  var valHigh = document.getElementById('valHigh');
+
+  function fmtMoney(n){
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+  function fmtPoints(n){
+    return Number(n).toLocaleString('en-US');
+  }
+
+  function updateCalc(){
+    var pts = Number(slider.value);
+    pointsReadout.textContent = fmtPoints(pts);
+    valLow.textContent = fmtMoney(pts * 0.005);
+    valMid.textContent = fmtMoney(pts * 0.0059);
+    valHigh.textContent = fmtMoney(pts * 0.01);
+  }
+  slider.addEventListener('input', updateCalc);
+  updateCalc();
+
+  /* ---- Flip cards (ladder + stamps) ---- */
+  document.querySelectorAll('[data-flip] button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pressed = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', String(!pressed));
+    });
+  });
+
+  /* ---- Reveal on scroll ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },{threshold:.15});
+    revealEls.forEach(function(el){ obs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---- Split-flap board reveal ---- */
+  var boardRows = document.querySelectorAll('.board-row[data-points]');
+  var boardEl = document.getElementById('board');
+  var boardPlayed = false;
+
+  function flapReveal(el, finalText, totalMs){
+    if(reduceMotion){ el.textContent = finalText; return; }
+    var chars = '0123456789';
+    var steps = 9;
+    var count = 0;
+    var interval = setInterval(function(){
+      el.textContent = finalText.replace(/\d/g, function(){
+        return chars[Math.floor(Math.random()*10)];
+      });
+      count++;
+      if(count >= steps){
+        clearInterval(interval);
+        el.textContent = finalText;
+      }
+    }, totalMs/steps);
+  }
+
+  function playBoard(){
+    if(boardPlayed) return;
+    boardPlayed = true;
+    boardRows.forEach(function(row, i){
+      var pointsEl = row.querySelector('.flap.points');
+      var finalText = row.getAttribute('data-points');
+      setTimeout(function(){
+        flapReveal(pointsEl, finalText, 650);
+      }, i * 220);
+    });
+  }
+
+  if('IntersectionObserver' in window){
+    var boardObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          playBoard();
+          boardObs.unobserve(entry.target);
+        }
+      });
+    },{threshold:.3});
+    boardObs.observe(boardEl);
+  } else {
+    playBoard();
+  }
+
+  /* ---- Quiz ---- */
+  var answers = {q1:'no', q2:'no', q3:'yes', q4:'no'};
+
+  document.querySelectorAll('.toggle-pair').forEach(function(pair){
+    var question = pair.getAttribute('data-question');
+    pair.querySelectorAll('.toggle-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        pair.querySelectorAll('.toggle-btn').forEach(function(b){
+          b.setAttribute('aria-pressed','false');
+        });
+        btn.setAttribute('aria-pressed','true');
+        answers[question] = btn.getAttribute('data-value');
+        updateVerdict();
+      });
+    });
+  });
+
+  var verdictTitle = document.getElementById('verdictTitle');
+  var verdictDetail = document.getElementById('verdictDetail');
+  var verdictNote = document.getElementById('verdictNote');
+
+  function updateVerdict(){
+    verdictTitle.classList.remove('go','wait','no');
+    verdictNote.style.display = 'none';
+
+    if(answers.q1 === 'yes'){
+      verdictTitle.textContent = 'Not cleared';
+      verdictTitle.classList.add('no');
+      verdictDetail.textContent = "Chase won't issue a new bonus on either personal IHG card within 24 months of your last one. Applying now likely means no bonus at all — wait out the clock.";
+    } else if(answers.q2 === 'yes'){
+      verdictTitle.textContent = 'Held at gate';
+      verdictTitle.classList.add('no');
+      verdictDetail.textContent = "You're over Chase's 5/24 threshold. This application will most likely be declined regardless of how good the offer is — let your 24‑month window clear first.";
+    } else if(answers.q3 === 'no'){
+      verdictTitle.textContent = 'Hold at gate';
+      verdictTitle.classList.add('wait');
+      verdictDetail.textContent = "You're eligible, but today's offer is sitting at the baseline (~80,000 pts). Worth waiting for a bump into the 100K+ range if you're not in a rush.";
+    } else {
+      verdictTitle.textContent = 'Boarding now';
+      verdictTitle.classList.add('go');
+      verdictDetail.textContent = "You're clear on both eligibility rules, and today's offer is an elevated one — this is a good time to apply.";
+    }
+
+    if(answers.q4 === 'yes'){
+      verdictNote.style.display = 'block';
+      verdictNote.textContent = "One more thing: since you stay with IHG often, also price out the $99 Premier card — its anniversary free night (worth up to 40,000 pts) usually outweighs the fee for regular guests.";
+    }
+  }
+
+  updateVerdict();
+
+})();
+</script>
+
+</body>
+</html>
