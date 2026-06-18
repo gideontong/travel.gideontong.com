@@ -1,341 +1,727 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Honeymoon in Business: Qatar Qsuites vs Singapore Airlines</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --burgundy: #7B113A;
-            --burgundy-dark: #5C0D2B;
-            --navy: #13294B;
-            --champagne: #F9F4EC;
-            --champagne-dark: #EADDC8;
-            --gold: #C6A664;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FCFAF7;
-            color: #1e293b;
-            -webkit-font-smoothing: antialiased;
-        }
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-        .gradient-header {
-            background: linear-gradient(135deg, #13294B 0%, #7B113A 100%);
-        }
-        .soft-shadow {
-            box-shadow: 0 10px 30px -12px rgba(19, 41, 75, 0.15);
-        }
-        .toggle-active {
-            background: white;
-            color: #13294B;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+      :root {
+        --burgundy: #7b113a;
+        --burgundy-dark: #5c0d2b;
+        --navy: #13294b;
+        --champagne: #f9f4ec;
+        --champagne-dark: #eaddc8;
+        --gold: #c6a664;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fcfaf7;
+        color: #1e293b;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+      }
+      .gradient-header {
+        background: linear-gradient(135deg, #13294b 0%, #7b113a 100%);
+      }
+      .soft-shadow {
+        box-shadow: 0 10px 30px -12px rgba(19, 41, 75, 0.15);
+      }
+      .toggle-active {
+        background: white;
+        color: #13294b;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header class="gradient-header text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <svg width="100%" height="100%"><defs><pattern id="hearts" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><text x="20" y="50" font-size="40" fill="white" opacity="0.3">♥</text></pattern></defs><rect width="100%" height="100%" fill="url(#hearts)"/></svg>
+      <div class="absolute inset-0 opacity-10">
+        <svg width="100%" height="100%">
+          <defs>
+            <pattern
+              id="hearts"
+              x="0"
+              y="0"
+              width="80"
+              height="80"
+              patternUnits="userSpaceOnUse"
+            >
+              <text x="20" y="50" font-size="40" fill="white" opacity="0.3">
+                ♥
+              </text>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hearts)" />
+        </svg>
+      </div>
+      <div class="relative max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
+        <div class="absolute top-4 left-6 md:top-8 md:left-6 z-20 text-left">
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Back to Main
+          </a>
         </div>
-        <div class="relative max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-sm mb-6 border border-white/20">
-                <span class="w-2 h-2 bg-[#EADDC8] rounded-full animate-pulse"></span>
-                For 2026-2027 Honeymoons
-            </div>
-            <h1 class="text-4xl md:text-6xl font-semibold leading-tight mb-4">Honeymoon in Business: Qatar Qsuites vs Singapore Airlines</h1>
-            <p class="text-lg md:text-xl text-[#EADDC8] font-light max-w-2xl mx-auto">Award comparison for two, from the US West Coast</p>
-            <div class="flex items-center justify-center gap-6 mt-10 opacity-80">
-                <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=200" class="w-12 h-12 rounded-full object-cover border-2 border-white/30" alt="Doha">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=200" class="w-12 h-12 rounded-full object-cover border-2 border-white/30" alt="Singapore">
-            </div>
+        <div
+          class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-sm mb-6 border border-white/20"
+        >
+          <span class="w-2 h-2 bg-[#EADDC8] rounded-full animate-pulse"></span>
+          For 2026-2027 Honeymoons
         </div>
+        <h1 class="text-4xl md:text-6xl font-semibold leading-tight mb-4">
+          Honeymoon in Business: Qatar Qsuites vs Singapore Airlines
+        </h1>
+        <p
+          class="text-lg md:text-xl text-[#EADDC8] font-light max-w-2xl mx-auto"
+        >
+          Award comparison for two, from the US West Coast
+        </p>
+        <div class="flex items-center justify-center gap-6 mt-10 opacity-80">
+          <img
+            src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=200"
+            class="w-12 h-12 rounded-full object-cover border-2 border-white/30"
+            alt="Doha"
+          />
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+          <img
+            src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=200"
+            class="w-12 h-12 rounded-full object-cover border-2 border-white/30"
+            alt="Singapore"
+          />
+        </div>
+      </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 -mt-8 relative z-10">
-        <!-- Quick Verdict -->
-        <section class="mb-16">
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-3xl p-7 soft-shadow border-t-4 border-[#7B113A]">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-[#7B113A]/10 p-3 rounded-2xl">
-                            <svg class="w-6 h-6 text-[#7B113A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364L12 7.636l-1.318-1.318a4.5 0 00-6.364 0z"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-[#7B113A] mb-1">Qatar Wins</h3>
-                            <p class="text-slate-600">for guaranteed privacy + double bed today</p>
-                            <p class="text-sm mt-3 text-slate-500">Perfect for couples who want to actually sleep together.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-3xl p-7 soft-shadow border-t-4 border-[#13294B]">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-[#13294B]/10 p-3 rounded-2xl">
-                            <svg class="w-6 h-6 text-[#13294B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-[#13294B] mb-1">Singapore Wins</h3>
-                            <p class="text-slate-600">for food experience + no fuel surcharges, but higher miles</p>
-                            <p class="text-sm mt-3 text-slate-500">Best for foodies willing to pay more points.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Product for Two -->
-        <section class="mb-20">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl text-[#13294B] mb-3">The Product for Two</h2>
-                <p class="text-slate-500">What your honeymoon seat actually feels like</p>
-            </div>
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Qatar -->
-                <div class="bg-white rounded-3xl overflow-hidden soft-shadow">
-                    <div class="h-48 relative">
-                        <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?q=80&w=1200&auto=format" class="w-full h-full object-cover" alt="Qatar Qsuites cabin">
-                        <div class="absolute top-4 left-4 bg-[#7B113A] text-white px-3 py-1.5 rounded-full text-xs font-medium">QATAR QSUITES</div>
-                    </div>
-                    <div class="p-7">
-                        <h3 class="text-2xl text-[#13294B] mb-4">Qatar Qsuites</h3>
-                        <ul class="space-y-3 text-slate-700">
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span><strong>Double bed</strong> in middle seats E/F on odd rows – slide the divider down</span></li>
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span>Sliding doors for full privacy (available now on most long-haul)</span></li>
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span>Turndown service with mattress pad, duvet, and B.R.I.C.S. pajamas</span></li>
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span><strong>Starlink WiFi up to 500 Mbps</strong> – free, actually fast</span></li>
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span>Al Mourjan Garden lounge in Doha – 80,000 sq ft oasis</span></li>
-                        </ul>
-                        <div class="mt-5 bg-[#F9F4EC] rounded-xl p-4 text-sm text-[#7B113A] font-medium">♥ Perfect for honeymooners – dine facing each other, then make the bed.</div>
-                    </div>
-                </div>
-
-                <!-- Singapore -->
-                <div class="bg-white rounded-3xl overflow-hidden soft-shadow">
-                    <div class="h-48 relative">
-                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format" class="w-full h-full object-cover" alt="Singapore Airlines cabin">
-                        <div class="absolute top-4 left-4 bg-[#13294B] text-white px-3 py-1.5 rounded-full text-xs font-medium">SINGAPORE AIRLINES</div>
-                    </div>
-                    <div class="p-7">
-                        <h3 class="text-2xl text-[#13294B] mb-4">Singapore Airlines</h3>
-                        <ul class="space-y-3 text-slate-700">
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span>Current fleet all flat beds as of Oct 2025</span></li>
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span><strong>Book the Cook</strong> pre-order dining – lobster thermidor, wagyu, curated wines</span></li>
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span><strong>2026 new suites</strong> with sliding doors and honeymoon double-bed options coming first half 2026 on A350</span></li>
-                            <li class="flex gap-3"><span class="text-[#C6A664] mt-1">✦</span><span>Current A380 offers couple pairs that convert to double bed – center pairs row 11, 96, 97</span></li>
-                        </ul>
-                        <div class="mt-5 bg-[#13294B]/5 rounded-xl p-4 text-sm text-[#13294B] font-medium">Best-in-class catering and service consistency.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Award Pricing -->
-        <section class="mb-20">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
-                <div>
-                    <h2 class="text-3xl md:text-4xl text-[#13294B] mb-2">Award Pricing</h2>
-                    <p class="text-slate-500">One-way per person from US West Coast</p>
-                </div>
-                <div class="flex items-center bg-[#EADDC8] p-1 rounded-full text-sm font-medium">
-                    <button id="milesBtn" class="toggle-active px-4 py-2 rounded-full transition">Miles Cost</button>
-                    <button id="cashBtn" class="px-4 py-2 rounded-full text-[#5C0D2B]/70 transition">Cash Equivalent</button>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl soft-shadow overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead class="bg-[#F9F4EC] text-left">
-                            <tr class="text-sm text-[#5C0D2B]">
-                                <th class="px-6 py-4 font-semibold">Airline</th>
-                                <th class="px-6 py-4 font-semibold">Route</th>
-                                <th class="px-6 py-4 font-semibold">Business Class</th>
-                                <th class="px-6 py-4 font-semibold">Taxes</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100">
-                            <tr>
-                                <td class="px-6 py-5"><span class="font-medium text-[#7B113A]">Qatar Privilege Club Avios</span></td>
-                                <td class="px-6 py-5 text-slate-700">JFK-DOH or SFO-DOH</td>
-                                <td class="px-6 py-5 font-semibold"><span data-miles="70,000" data-cash="$1,050">70,000</span> off-peak / <span data-miles="140,000" data-cash="$2,100">140,000</span> peak</td>
-                                <td class="px-6 py-5 text-slate-600">~$98</td>
-                            </tr>
-                            <tr class="bg-slate-50/50">
-                                <td class="px-6 py-4 text-slate-500 italic" colspan="4">Connect onward to MLE/DPS from ~20-35k Avios. Note SFO-DOH similar pricing via Avios.</td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-5"><span class="font-medium text-[#13294B]">Singapore KrisFlyer Saver</span></td>
-                                <td class="px-6 py-5 text-slate-700">SFO/LAX- SIN</td>
-                                <td class="px-6 py-5 font-semibold"><span data-miles="112,500" data-cash="$1,688">112,500</span> miles</td>
-                                <td class="px-6 py-5 text-slate-600">~$65 <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded ml-1">No fuel surcharges</span></td>
-                            </tr>
-                            <tr class="bg-slate-50/50">
-                                <td class="px-6 py-4 text-slate-500 italic" colspan="4">East Coast: <span data-miles="117,000" data-cash="$1,755">117,000</span> miles. Advantage miles are slightly higher than Qatar off-peak.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="px-6 py-3 bg-slate-50 text-xs text-slate-500">*Cash equivalent based on ~1.5¢ per transferable point</div>
-            </div>
-        </section>
-
-        <!-- Miles & Transfers -->
-        <section class="mb-20 grid md:grid-cols-2 gap-8">
-            <div>
-                <h3 class="text-2xl text-[#7B113A] mb-5 flex items-center gap-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                    Miles & Transfers: Qatar
+      <!-- Quick Verdict -->
+      <section class="mb-16">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div
+            class="bg-white rounded-3xl p-7 soft-shadow border-t-4 border-[#7B113A]"
+          >
+            <div class="flex items-start gap-4">
+              <div class="bg-[#7B113A]/10 p-3 rounded-2xl">
+                <svg
+                  class="w-6 h-6 text-[#7B113A]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364L12 7.636l-1.318-1.318a4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-[#7B113A] mb-1">
+                  Qatar Wins
                 </h3>
-                <div class="bg-white rounded-2xl p-6 soft-shadow h-full">
-                    <p class="text-slate-700 mb-4">Avios transferable 1:1 from Chase, Amex, Citi, Capital One (via BA/Iberia then to Qatar), plus Citi ThankYou direct.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-sm">Chase UR</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-sm">Amex MR</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-sm">Citi TY</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-sm">Capital One</span>
-                    </div>
-                    <p class="text-sm text-green-700 bg-green-50 p-3 rounded-xl">✓ Miles don't expire with activity every 24 months</p>
-                </div>
+                <p class="text-slate-600">
+                  for guaranteed privacy + double bed today
+                </p>
+                <p class="text-sm mt-3 text-slate-500">
+                  Perfect for couples who want to actually sleep together.
+                </p>
+              </div>
             </div>
-            <div>
-                <h3 class="text-2xl text-[#13294B] mb-5 flex items-center gap-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
-                    Miles & Transfers: Singapore
+          </div>
+          <div
+            class="bg-white rounded-3xl p-7 soft-shadow border-t-4 border-[#13294B]"
+          >
+            <div class="flex items-start gap-4">
+              <div class="bg-[#13294B]/10 p-3 rounded-2xl">
+                <svg
+                  class="w-6 h-6 text-[#13294B]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-[#13294B] mb-1">
+                  Singapore Wins
                 </h3>
-                <div class="bg-white rounded-2xl p-6 soft-shadow h-full">
-                    <p class="text-slate-700 mb-4">KrisFlyer 1:1 from Chase, Amex, Citi, Capital One.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-sm">Chase UR</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-sm">Amex MR</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-sm">Citi TY</span>
-                        <span class="px-3 py-1 bg-slate-100 rounded-full text-sm">Capital One</span>
-                    </div>
-                    <p class="text-sm text-amber-700 bg-amber-50 p-3 rounded-xl">⚠ Hard 36-month expiry, no extensions via activity</p>
-                </div>
+                <p class="text-slate-600">
+                  for food experience + no fuel surcharges, but higher miles
+                </p>
+                <p class="text-sm mt-3 text-slate-500">
+                  Best for foodies willing to pay more points.
+                </p>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- Availability -->
-        <section class="mb-20">
-            <h2 class="text-3xl md:text-4xl text-[#13294B] mb-8 text-center">Availability for Two</h2>
+      <!-- The Product for Two -->
+      <section class="mb-20">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-4xl text-[#13294B] mb-3">
+            The Product for Two
+          </h2>
+          <p class="text-slate-500">
+            What your honeymoon seat actually feels like
+          </p>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- Qatar -->
+          <div class="bg-white rounded-3xl overflow-hidden soft-shadow">
+            <div class="h-48 relative">
+              <img
+                src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?q=80&w=1200&auto=format"
+                class="w-full h-full object-cover"
+                alt="Qatar Qsuites cabin"
+              />
+              <div
+                class="absolute top-4 left-4 bg-[#7B113A] text-white px-3 py-1.5 rounded-full text-xs font-medium"
+              >
+                QATAR QSUITES
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="text-2xl text-[#13294B] mb-4">Qatar Qsuites</h3>
+              <ul class="space-y-3 text-slate-700">
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span
+                    ><strong>Double bed</strong> in middle seats E/F on odd rows
+                    – slide the divider down</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span
+                    >Sliding doors for full privacy (available now on most
+                    long-haul)</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span
+                    >Turndown service with mattress pad, duvet, and B.R.I.C.S.
+                    pajamas</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span
+                    ><strong>Starlink WiFi up to 500 Mbps</strong> – free,
+                    actually fast</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span
+                    >Al Mourjan Garden lounge in Doha – 80,000 sq ft oasis</span
+                  >
+                </li>
+              </ul>
+              <div
+                class="mt-5 bg-[#F9F4EC] rounded-xl p-4 text-sm text-[#7B113A] font-medium"
+              >
+                ♥ Perfect for honeymooners – dine facing each other, then make
+                the bed.
+              </div>
+            </div>
+          </div>
+
+          <!-- Singapore -->
+          <div class="bg-white rounded-3xl overflow-hidden soft-shadow">
+            <div class="h-48 relative">
+              <img
+                src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format"
+                class="w-full h-full object-cover"
+                alt="Singapore Airlines cabin"
+              />
+              <div
+                class="absolute top-4 left-4 bg-[#13294B] text-white px-3 py-1.5 rounded-full text-xs font-medium"
+              >
+                SINGAPORE AIRLINES
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="text-2xl text-[#13294B] mb-4">Singapore Airlines</h3>
+              <ul class="space-y-3 text-slate-700">
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span>Current fleet all flat beds as of Oct 2025</span>
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span
+                    ><strong>Book the Cook</strong> pre-order dining – lobster
+                    thermidor, wagyu, curated wines</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span
+                    ><strong>2026 new suites</strong> with sliding doors and
+                    honeymoon double-bed options coming first half 2026 on
+                    A350</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-[#C6A664] mt-1">✦</span
+                  ><span
+                    >Current A380 offers couple pairs that convert to double bed
+                    – center pairs row 11, 96, 97</span
+                  >
+                </li>
+              </ul>
+              <div
+                class="mt-5 bg-[#13294B]/5 rounded-xl p-4 text-sm text-[#13294B] font-medium"
+              >
+                Best-in-class catering and service consistency.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Award Pricing -->
+      <section class="mb-20">
+        <div
+          class="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4"
+        >
+          <div>
+            <h2 class="text-3xl md:text-4xl text-[#13294B] mb-2">
+              Award Pricing
+            </h2>
+            <p class="text-slate-500">One-way per person from US West Coast</p>
+          </div>
+          <div
+            class="flex items-center bg-[#EADDC8] p-1 rounded-full text-sm font-medium"
+          >
+            <button
+              id="milesBtn"
+              class="toggle-active px-4 py-2 rounded-full transition"
+            >
+              Miles Cost
+            </button>
+            <button
+              id="cashBtn"
+              class="px-4 py-2 rounded-full text-[#5C0D2B]/70 transition"
+            >
+              Cash Equivalent
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl soft-shadow overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-[#F9F4EC] text-left">
+                <tr class="text-sm text-[#5C0D2B]">
+                  <th class="px-6 py-4 font-semibold">Airline</th>
+                  <th class="px-6 py-4 font-semibold">Route</th>
+                  <th class="px-6 py-4 font-semibold">Business Class</th>
+                  <th class="px-6 py-4 font-semibold">Taxes</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="px-6 py-5">
+                    <span class="font-medium text-[#7B113A]"
+                      >Qatar Privilege Club Avios</span
+                    >
+                  </td>
+                  <td class="px-6 py-5 text-slate-700">JFK-DOH or SFO-DOH</td>
+                  <td class="px-6 py-5 font-semibold">
+                    <span data-miles="70,000" data-cash="$1,050">70,000</span>
+                    off-peak /
+                    <span data-miles="140,000" data-cash="$2,100">140,000</span>
+                    peak
+                  </td>
+                  <td class="px-6 py-5 text-slate-600">~$98</td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="px-6 py-4 text-slate-500 italic" colspan="4">
+                    Connect onward to MLE/DPS from ~20-35k Avios. Note SFO-DOH
+                    similar pricing via Avios.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-5">
+                    <span class="font-medium text-[#13294B]"
+                      >Singapore KrisFlyer Saver</span
+                    >
+                  </td>
+                  <td class="px-6 py-5 text-slate-700">SFO/LAX- SIN</td>
+                  <td class="px-6 py-5 font-semibold">
+                    <span data-miles="112,500" data-cash="$1,688">112,500</span>
+                    miles
+                  </td>
+                  <td class="px-6 py-5 text-slate-600">
+                    ~$65
+                    <span
+                      class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded ml-1"
+                      >No fuel surcharges</span
+                    >
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="px-6 py-4 text-slate-500 italic" colspan="4">
+                    East Coast:
+                    <span data-miles="117,000" data-cash="$1,755">117,000</span>
+                    miles. Advantage miles are slightly higher than Qatar
+                    off-peak.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="px-6 py-3 bg-slate-50 text-xs text-slate-500">
+            *Cash equivalent based on ~1.5¢ per transferable point
+          </div>
+        </div>
+      </section>
+
+      <!-- Miles & Transfers -->
+      <section class="mb-20 grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-2xl text-[#7B113A] mb-5 flex items-center gap-2">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            Miles & Transfers: Qatar
+          </h3>
+          <div class="bg-white rounded-2xl p-6 soft-shadow h-full">
+            <p class="text-slate-700 mb-4">
+              Avios transferable 1:1 from Chase, Amex, Citi, Capital One (via
+              BA/Iberia then to Qatar), plus Citi ThankYou direct.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                >Chase UR</span
+              >
+              <span class="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                >Amex MR</span
+              >
+              <span class="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                >Citi TY</span
+              >
+              <span class="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                >Capital One</span
+              >
+            </div>
+            <p class="text-sm text-green-700 bg-green-50 p-3 rounded-xl">
+              ✓ Miles don't expire with activity every 24 months
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-2xl text-[#13294B] mb-5 flex items-center gap-2">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+              />
+            </svg>
+            Miles & Transfers: Singapore
+          </h3>
+          <div class="bg-white rounded-2xl p-6 soft-shadow h-full">
+            <p class="text-slate-700 mb-4">
+              KrisFlyer 1:1 from Chase, Amex, Citi, Capital One.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                >Chase UR</span
+              >
+              <span class="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                >Amex MR</span
+              >
+              <span class="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                >Citi TY</span
+              >
+              <span class="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                >Capital One</span
+              >
+            </div>
+            <p class="text-sm text-amber-700 bg-amber-50 p-3 rounded-xl">
+              ⚠ Hard 36-month expiry, no extensions via activity
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Availability -->
+      <section class="mb-20">
+        <h2 class="text-3xl md:text-4xl text-[#13294B] mb-8 text-center">
+          Availability for Two
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div
+            class="bg-gradient-to-br from-[#7B113A]/5 to-white rounded-3xl p-7 border border-[#7B113A]/10"
+          >
+            <h4 class="font-semibold text-[#7B113A] mb-3 text-lg">Qatar</h4>
+            <p class="text-slate-700">
+              Privilege Club sees more Qsuites seats than partners, off-peak
+              inventory common, use Seats.aero alerts.
+            </p>
+            <div class="mt-4 text-sm text-slate-600">
+              Pro tip: Search 355 days out at 12am Doha time
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-br from-[#13294B]/5 to-white rounded-3xl p-7 border border-[#13294B]/10"
+          >
+            <h4 class="font-semibold text-[#13294B] mb-3 text-lg">Singapore</h4>
+            <p class="text-slate-700">
+              Saver seats limited, waitlist common, new restrictions on advance
+              seat selection for award tickets effective May 2026.
+            </p>
+            <div class="mt-4 text-sm text-slate-600">
+              Pro tip: Book immediately when waitlist clears, or pay Advantage
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Honeymoon Checklist -->
+      <section class="mb-20">
+        <h2 class="text-3xl md:text-4xl text-[#13294B] mb-8 text-center">
+          Honeymoon Experience Checklist
+        </h2>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="bg-white rounded-2xl p-6 soft-shadow">
+            <div class="flex items-start gap-4">
+              <div class="text-2xl">🔒</div>
+              <div>
+                <h4 class="font-semibold mb-1">Privacy</h4>
+                <p class="text-slate-600 text-sm">
+                  <strong class="text-[#7B113A]">Qatar:</strong> doors now.
+                  <strong class="text-[#13294B]">Singapore:</strong> doors
+                  coming 2026
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 soft-shadow">
+            <div class="flex items-start gap-4">
+              <div class="text-2xl">🍽️</div>
+              <div>
+                <h4 class="font-semibold mb-1">Dining</h4>
+                <p class="text-slate-600 text-sm">
+                  <strong class="text-[#7B113A]">Qatar:</strong> on-demand +
+                  caviar select.
+                  <strong class="text-[#13294B]">Singapore:</strong> Book the
+                  Cook chef menus
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 soft-shadow">
+            <div class="flex items-start gap-4">
+              <div class="text-2xl">🏨</div>
+              <div>
+                <h4 class="font-semibold mb-1">Stopover</h4>
+                <p class="text-slate-600 text-sm">
+                  <strong class="text-[#7B113A]">Doha:</strong> 5-star hotels
+                  from $24 via Qatar stopover.
+                  <strong class="text-[#13294B]">Singapore:</strong> city
+                  stopover easy
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 soft-shadow">
+            <div class="flex items-start gap-4">
+              <div class="text-2xl">✨</div>
+              <div>
+                <h4 class="font-semibold mb-1">Lounge</h4>
+                <p class="text-slate-600 text-sm">
+                  <strong class="text-[#7B113A]">Al Mourjan Garden</strong> 80k
+                  sq ft vs
+                  <strong class="text-[#13294B]">Private Room at Changi</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recommendation -->
+      <section class="mb-16">
+        <div
+          class="bg-[#13294B] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden"
+        >
+          <div
+            class="absolute -right-20 -top-20 w-64 h-64 bg-[#7B113A]/30 rounded-full blur-3xl"
+          ></div>
+          <div class="relative">
+            <div
+              class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-3 py-1 rounded-full text-xs mb-4"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              For Gideon from Santa Clara
+            </div>
+            <h2
+              class="text-3xl md:text-4xl mb-6"
+              style="font-family: &quot;Playfair Display&quot;, serif"
+            >
+              Our Recommendation
+            </h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-gradient-to-br from-[#7B113A]/5 to-white rounded-3xl p-7 border border-[#7B113A]/10">
-                    <h4 class="font-semibold text-[#7B113A] mb-3 text-lg">Qatar</h4>
-                    <p class="text-slate-700">Privilege Club sees more Qsuites seats than partners, off-peak inventory common, use Seats.aero alerts.</p>
-                    <div class="mt-4 text-sm text-slate-600">Pro tip: Search 355 days out at 12am Doha time</div>
-                </div>
-                <div class="bg-gradient-to-br from-[#13294B]/5 to-white rounded-3xl p-7 border border-[#13294B]/10">
-                    <h4 class="font-semibold text-[#13294B] mb-3 text-lg">Singapore</h4>
-                    <p class="text-slate-700">Saver seats limited, waitlist common, new restrictions on advance seat selection for award tickets effective May 2026.</p>
-                    <div class="mt-4 text-sm text-slate-600">Pro tip: Book immediately when waitlist clears, or pay Advantage</div>
-                </div>
+              <div
+                class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
+              >
+                <h4 class="font-semibold text-[#EADDC8] mb-2">
+                  Choose Qatar if...
+                </h4>
+                <p class="text-white/90">
+                  You want the <strong>SFO-DOH</strong> flight for a
+                  Maldives/Bali honeymoon for lower miles and double bed now. At
+                  70k off-peak, you'll save 85k miles for two vs Singapore –
+                  that's a night at Alila Villas.
+                </p>
+              </div>
+              <div
+                class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
+              >
+                <h4 class="font-semibold text-[#EADDC8] mb-2">
+                  Choose Singapore if...
+                </h4>
+                <p class="text-white/90">
+                  You're prioritizing food and the direct
+                  <strong>SFO-SIN nonstop</strong> (17h15m, no connection), and
+                  willing to pay more miles. Book the Cook + no Doha transit is
+                  serene.
+                </p>
+              </div>
             </div>
-        </section>
-
-        <!-- Honeymoon Checklist -->
-        <section class="mb-20">
-            <h2 class="text-3xl md:text-4xl text-[#13294B] mb-8 text-center">Honeymoon Experience Checklist</h2>
-            <div class="grid md:grid-cols-2 gap-5">
-                <div class="bg-white rounded-2xl p-6 soft-shadow">
-                    <div class="flex items-start gap-4">
-                        <div class="text-2xl">🔒</div>
-                        <div>
-                            <h4 class="font-semibold mb-1">Privacy</h4>
-                            <p class="text-slate-600 text-sm"><strong class="text-[#7B113A]">Qatar:</strong> doors now. <strong class="text-[#13294B]">Singapore:</strong> doors coming 2026</p>
-                        </div>
-                    </div>
-                <div class="bg-white rounded-2xl p-6 soft-shadow">
-                    <div class="flex items-start gap-4">
-                        <div class="text-2xl">🍽️</div>
-                        <div>
-                            <h4 class="font-semibold mb-1">Dining</h4>
-                            <p class="text-slate-600 text-sm"><strong class="text-[#7B113A]">Qatar:</strong> on-demand + caviar select. <strong class="text-[#13294B]">Singapore:</strong> Book the Cook chef menus</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 soft-shadow">
-                    <div class="flex items-start gap-4">
-                        <div class="text-2xl">🏨</div>
-                        <div>
-                            <h4 class="font-semibold mb-1">Stopover</h4>
-                            <p class="text-slate-600 text-sm"><strong class="text-[#7B113A]">Doha:</strong> 5-star hotels from $24 via Qatar stopover. <strong class="text-[#13294B]">Singapore:</strong> city stopover easy</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 soft-shadow">
-                    <div class="flex items-start gap-4">
-                        <div class="text-2xl">✨</div>
-                        <div>
-                            <h4 class="font-semibold mb-1">Lounge</h4>
-                            <p class="text-slate-600 text-sm"><strong class="text-[#7B113A]">Al Mourjan Garden</strong> 80k sq ft vs <strong class="text-[#13294B]">Private Room at Changi</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Recommendation -->
-        <section class="mb-16">
-            <div class="bg-[#13294B] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden">
-                <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#7B113A]/30 rounded-full blur-3xl"></div>
-                <div class="relative">
-                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-3 py-1 rounded-full text-xs mb-4">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        For Gideon from Santa Clara
-                    </div>
-                    <h2 class="text-3xl md:text-4xl mb-6" style="font-family: 'Playfair Display', serif;">Our Recommendation</h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                            <h4 class="font-semibold text-[#EADDC8] mb-2">Choose Qatar if...</h4>
-                            <p class="text-white/90">You want the <strong>SFO-DOH</strong> flight for a Maldives/Bali honeymoon for lower miles and double bed now. At 70k off-peak, you'll save 85k miles for two vs Singapore – that's a night at Alila Villas.</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                            <h4 class="font-semibold text-[#EADDC8] mb-2">Choose Singapore if...</h4>
-                            <p class="text-white/90">You're prioritizing food and the direct <strong>SFO-SIN nonstop</strong> (17h15m, no connection), and willing to pay more miles. Book the Cook + no Doha transit is serene.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="border-t border-[#EADDC8] py-10 text-center">
-        <div class="max-w-6xl mx-auto px-6">
-            <p class="text-slate-500">Built for couples planning 2026-2027 honeymoons • Compare live availability before transferring</p>
-            <p class="text-xs text-slate-400 mt-2">Qatar Qsuites double bed requires booking E/F middle pair. Singapore new suites expected H1 2026.</p>
-        </div>
+      <div class="max-w-6xl mx-auto px-6">
+        <p class="text-slate-500">
+          Built for couples planning 2026-2027 honeymoons • Compare live
+          availability before transferring
+        </p>
+        <p class="text-xs text-slate-400 mt-2">
+          Qatar Qsuites double bed requires booking E/F middle pair. Singapore
+          new suites expected H1 2026.
+        </p>
+      </div>
     </footer>
 
     <script>
-        const milesBtn = document.getElementById('milesBtn');
-        const cashBtn = document.getElementById('cashBtn');
-        
-        function setMode(mode) {
-            document.querySelectorAll('[data-miles]').forEach(el => {
-                el.textContent = mode === 'miles' ? el.dataset.miles : el.dataset.cash;
-            });
-            if (mode === 'miles') {
-                milesBtn.classList.add('toggle-active');
-                cashBtn.classList.remove('toggle-active');
-                cashBtn.classList.add('text-[#5C0D2B]/70');
-            } else {
-                cashBtn.classList.add('toggle-active');
-                milesBtn.classList.remove('toggle-active');
-                milesBtn.classList.add('text-[#5C0D2B]/70');
-            }
+      const milesBtn = document.getElementById("milesBtn");
+      const cashBtn = document.getElementById("cashBtn");
+
+      function setMode(mode) {
+        document.querySelectorAll("[data-miles]").forEach((el) => {
+          el.textContent =
+            mode === "miles" ? el.dataset.miles : el.dataset.cash;
+        });
+        if (mode === "miles") {
+          milesBtn.classList.add("toggle-active");
+          cashBtn.classList.remove("toggle-active");
+          cashBtn.classList.add("text-[#5C0D2B]/70");
+        } else {
+          cashBtn.classList.add("toggle-active");
+          milesBtn.classList.remove("toggle-active");
+          milesBtn.classList.add("text-[#5C0D2B]/70");
         }
-        
-        milesBtn.addEventListener('click', () => setMode('miles'));
-        cashBtn.addEventListener('click', () => setMode('cash'));
+      }
+
+      milesBtn.addEventListener("click", () => setMode("miles"));
+      cashBtn.addEventListener("click", () => setMode("cash"));
     </script>
-<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
-</body>
+    <script>
+      (function () {
+        document.addEventListener("click", function (e) {
+          var a = e.target.closest("[data-product-id]");
+          if (!a) return;
+          e.preventDefault();
+          var pid = a.getAttribute("data-product-id");
+          if (pid)
+            parent.postMessage(
+              { type: "ecto-artifact-link-click", productId: pid },
+              "*",
+            );
+        });
+      })();
+    </script>
+  </body>
 </html>
