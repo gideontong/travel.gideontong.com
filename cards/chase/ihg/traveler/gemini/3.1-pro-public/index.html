@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHG One Rewards Strategy Guide</title>
+    <style>
+        :root {
+            --primary-color: #d96b27; /* IHG-inspired orange */
+            --secondary-color: #2c3e50;
+            --bg-light: #f8f9fa;
+            --text-main: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        header {
+            margin-top: 60px;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--bg-light);
+            max-width: 100%;
+            padding: 4rem 10%;
+        }
+
+        h2.section-title {
+            color: var(--secondary-color);
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Calculator Tool */
+        .calculator {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calculator input {
+            padding: 1rem;
+            width: 80%;
+            font-size: 1.2rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .calculator button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .calculator button:hover {
+            background: #b5551c;
+        }
+
+        .result-box {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .high-value {
+            color: #27ae60;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            nav ul { display: none; } /* Simple hide for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>IHG Strategy</h1>
+        <ul>
+            <li><a href="#value">Points Value</a></li>
+            <li><a href="#luxury">Global Luxury</a></li>
+            <li><a href="#credit-cards">Card Strategy</a></li>
+            <li><a href="#tools">Interactive Tools</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h2>Mastering IHG One Rewards</h2>
+        <p>Your complete guide to valuations, premium global redemptions, and credit card optimization strategies.</p>
+    </header>
+
+    <section id="value">
+        <h2 class="section-title">Points Value & Redemptions</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>The Baseline Value</h3>
+                <p>IHG points are generally valued between <strong>0.5 and 0.66 cents per point</strong>. This means a stash of 10,000 points is typically worth about $50 to $66 when applied toward free nights.</p>
+            </div>
+            <div class="card">
+                <h3>Award Pricing Tiers</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><strong>Minimum:</strong> 5,000 - 10,000 pts (Budget brands, off-peak)</li>
+                    <li><strong>Average:</strong> ~60,000 pts (Standard redemptions)</li>
+                    <li><strong>Premium:</strong> 70,000 - 120,000 pts (InterContinental, Six Senses, Regent)</li>
+                    <li><strong>Peak Ultra-Luxury:</strong> Up to 200,000 pts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="luxury" style="background-color: var(--bg-light);">
+        <h2 class="section-title">Premium European & Asian Footprint</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Hong Kong & Macau</h3>
+                <p>Features the spectacular <strong>Regent Hong Kong</strong> on Victoria Harbour. In Macau, access Cotai Strip mega-resorts like <strong>The Venetian</strong> and <strong>The Londoner</strong> via the InterContinental Alliance.</p>
+            </div>
+            <div class="card">
+                <h3>Germany & Austria</h3>
+                <p>Anchored by the <strong>InterContinental Berlin</strong> and the stylish <strong>Kimpton Main Frankfurt</strong>. Austria offers the classic luxury of the <strong>InterContinental Vienna</strong> by the Stadtpark.</p>
+            </div>
+            <div class="card">
+                <h3>Italy</h3>
+                <p>A rapidly growing luxury market featuring the stunning <strong>Six Senses Rome</strong>, the InterContinental Rome Ambasciatori Palace, and Vignette Collection boutiques in Venice and Sicily.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="credit-cards">
+        <h2 class="section-title">Traveler Card Strategy</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <h3>The Chase 5/24 Optimization</h3>
+            <p style="margin-bottom: 1rem;">The IHG Traveler card features no annual fee and historical welcome bonuses peaking at <strong>125,000 points</strong>. However, applying directly uses a highly valuable Chase 5/24 slot.</p>
+            
+            <h4 style="margin-top: 1.5rem; color: var(--primary-color);">The Optimal Route (Downgrade Strategy)</h4>
+            <p style="margin-bottom: 1rem;">Apply for the $99-fee IHG Premier card when its bonus peaks (up to 185,000 pts or multiple free nights). Hold it for one year to capture the massive bonus, then call Chase to downgrade to the no-fee Traveler card.</p>
+            
+            <h4 style="margin-top: 1.5rem; color: var(--primary-color);">The "4th Night Free" Rule</h4>
+            <p>The strongest reason to hold this card is the <strong>4th Reward Night Free</strong> benefit. If you are redeeming points for a stay of 4+ nights, holding the card gives you a mathematical 25% discount on your booking.</p>
+        </div>
+    </section>
+
+    <section id="tools" style="background-color: var(--bg-light);">
+        <h2 class="section-title">Interactive Value Calculator</h2>
+        <div class="calculator">
+            <p style="margin-bottom: 1.5rem;">Enter your target point redemption to see its estimated cash value based on the standard 0.5 to 0.66 cents per point valuation.</p>
+            <input type="number" id="pointsInput" placeholder="e.g., 60000" min="0">
+            <br>
+            <button onclick="calculateValue()">Calculate Value</button>
+            <div class="result-box" id="resultDisplay"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Interactive Guide built for IHG One Rewards Strategy & Optimization</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Points Calculator Logic
+        function calculateValue() {
+            const points = document.getElementById('pointsInput').value;
+            const resultDisplay = document.getElementById('resultDisplay');
+            
+            if (!points || points <= 0) {
+                resultDisplay.innerHTML = "Please enter a valid point amount.";
+                resultDisplay.style.color = "var(--secondary-color)";
+                return;
+            }
+
+            // Calculate low and high end values (0.5 CPM to 0.66 CPM)
+            const lowValue = (points * 0.005).toFixed(2);
+            const highValue = (points * 0.0066).toFixed(2);
+
+            resultDisplay.innerHTML = `
+                Estimated Value: <br> 
+                <span class="high-value">$${lowValue} – $${highValue}</span>
+            `;
+        }
+    </script>
+</body>
+</html>
