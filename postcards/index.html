@@ -56,7 +56,7 @@
     </style>
   </head>
   <body class="bg-[#fcfaf7] dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300 min-h-screen flex flex-col">
-    <div class="max-w-6xl mx-auto px-6 py-10 md:py-16 w-full flex-1">
+    <div class="max-w-6xl 2xl:max-w-[1400px] mx-auto px-6 py-10 md:py-16 w-full flex-1">
       <!-- Header & Navigation -->
       <div class="mb-10 flex items-center justify-between">
         <a
@@ -92,26 +92,29 @@
         </p>
       </div>
 
-      <!-- Carousel Section -->
-      <div class="relative w-full h-[40vh] md:h-[50vh] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 group mb-12 bg-slate-200 dark:bg-slate-800" id="carousel-container">
-        <div id="carousel-images" class="absolute inset-0 flex items-center justify-center"></div>
-        <div id="carousel-indicators" class="absolute bottom-6 left-0 right-0 flex justify-center gap-2.5 z-50"></div>
-        <div class="absolute top-4 right-4 z-50 bg-black/50 backdrop-blur-md rounded-full px-3.5 py-2 text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2 pointer-events-none">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
-          Click to enlarge
+      <!-- Main Content Area -->
+      <div class="flex flex-col 2xl:flex-row 2xl:gap-8 mb-16">
+        <!-- Map Section (On mobile: below carousel. On 2xl: left of carousel) -->
+        <div class="w-full h-[60vh] md:h-[75vh] min-h-[500px] rounded-[2rem] overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 relative z-0 order-2 2xl:order-1 2xl:flex-1">
+          <div id="map" class="absolute inset-0 z-0"></div>
         </div>
-        <!-- Navigation Buttons -->
-        <button id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-black/40 hover:bg-black/70 text-white rounded-full p-3 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-        <button id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-black/40 hover:bg-black/70 text-white rounded-full p-3 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </button>
-      </div>
 
-      <!-- Map Section -->
-      <div class="w-full h-[60vh] md:h-[75vh] min-h-[500px] rounded-[2rem] overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 relative z-0 mb-16">
-        <div id="map" class="absolute inset-0 z-0"></div>
+        <!-- Carousel Section -->
+        <div class="relative w-full h-[40vh] md:h-[50vh] 2xl:h-[75vh] 2xl:w-[500px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 group mb-12 2xl:mb-0 bg-slate-200 dark:bg-slate-800 order-1 2xl:order-2 shrink-0" id="carousel-container">
+          <div id="carousel-images" class="absolute inset-0 flex items-center justify-center"></div>
+          <div id="carousel-indicators" class="absolute bottom-6 left-0 right-0 flex justify-center gap-2.5 z-50"></div>
+          <div class="absolute top-4 right-4 z-50 bg-black/50 backdrop-blur-md rounded-full px-3.5 py-2 text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2 pointer-events-none">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            Click to enlarge
+          </div>
+          <!-- Navigation Buttons -->
+          <button id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-black/40 hover:bg-black/70 text-white rounded-full p-3 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <button id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-black/40 hover:bg-black/70 text-white rounded-full p-3 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
       </div>
 
       <!-- Gallery Section -->
