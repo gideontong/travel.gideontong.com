@@ -574,6 +574,7 @@
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
     <script>
       // Theme toggling
       const themeToggle = document.getElementById('themeToggle');
@@ -738,7 +739,7 @@
       const map = L.map('map', {
         zoomControl: false,
         attributionControl: false
-      }).setView([38, 60], 3);
+      }).setView([38, 60], 2);
 
       tileLayer = L.tileLayer(getTileUrl(currentTheme), {
         maxZoom: 19
@@ -757,7 +758,17 @@
       });
 
       drawnPaths.forEach(data => {
-        const polyline = L.polyline(data.path, {
+        const latlngs = [];
+        for (let i = 0; i < data.path.length - 1; i++) {
+          const startPt = turf.point([data.path[i][1], data.path[i][0]]);
+          const endPt = turf.point([data.path[i+1][1], data.path[i+1][0]]);
+          const greatCircle = turf.greatCircle(startPt, endPt);
+          const segmentLatlngs = greatCircle.geometry.coordinates.map(coord => [coord[1], coord[0]]);
+          if (i > 0) segmentLatlngs.shift();
+          latlngs.push(...segmentLatlngs);
+        }
+
+        const polyline = L.polyline(latlngs, {
           color: 'var(--featured)',
           weight: 2,
           opacity: 0.6,
